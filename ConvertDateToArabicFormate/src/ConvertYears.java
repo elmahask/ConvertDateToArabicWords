@@ -17,11 +17,10 @@ public class ConvertYears {
 
 		int day = cal.get(Calendar.DATE);
 		String strDateToWords = convertNumberToArabicWords(Integer.toString(day));
-		strDateToWords += " „‰ " + format2.format(cal.getTime());
+		strDateToWords += " √£√§ " + format2.format(cal.getTime());
 
-		
 		int year = cal.get(Calendar.YEAR);
-		strDateToWords += " ⁄«„ " + convertNumberToArabicWords(Integer.toString(year));
+		strDateToWords += " √ö√á√£ " + convertNumberToArabicWords(Integer.toString(year));
 		return strDateToWords;
 	}
 	
@@ -51,23 +50,23 @@ public class ConvertYears {
 	private static String convertOneDigits(String oneDigit) {
 		switch (Integer.parseInt(oneDigit)) {
 		case 1:
-			return "Ê«Õœ";
+			return "√¶√á√ç√è";
 		case 2:
-			return "≈À‰«‰";
+			return "√Ö√ã√§√á√§";
 		case 3:
-			return "À·«ÀÂ";
+			return "√ã√°√á√ã√•";
 		case 4:
-			return "√—»⁄Â";
+			return "√É√ë√à√ö√•";
 		case 5:
-			return "Œ„”Â";
+			return "√é√£√ì√•";
 		case 6:
-			return "” Â";
+			return "√ì√ä√•";
 		case 7:
-			return "”»⁄Â";
+			return "√ì√à√ö√•";
 		case 8:
-			return "À„«‰ÌÂ";
+			return "√ã√£√á√§√≠√•";
 		case 9:
-			return " ”⁄Â";
+			return "√ä√ì√ö√•";
 		default:
 			return "";
 		}
@@ -84,40 +83,40 @@ public class ConvertYears {
 			switch (getIntVal(twoDigits.charAt(0))) {
 			case 1: { // 1x
 				if (getIntVal(twoDigits.charAt(1)) == 0) {
-					return "⁄‘—…";
+					return "√ö√î√ë√â";
 				}
 				if (getIntVal(twoDigits.charAt(1)) == 1) {
-					return "√Õœ ⁄‘—";
+					return "√É√ç√è √ö√î√ë";
 				}
 				if (getIntVal(twoDigits.charAt(1)) == 2) {
-					return "«À‰« ⁄‘—";
+					return "√á√ã√§√á √ö√î√ë";
 				} else { 
-					return convertOneDigits(String.valueOf(twoDigits.charAt(1))) + " " + "⁄‘—";
+					return convertOneDigits(String.valueOf(twoDigits.charAt(1))) + " " + "√ö√î√ë";
 				}
 			}
 			case 2: // 2x x:not 0
-				returnAlpha = "⁄‘—Ê‰";
+				returnAlpha = "√ö√î√ë√¶√§";
 				break;
 			case 3: // 3x x:not 0
-				returnAlpha = "À·«ÀÊ‰";
+				returnAlpha = "√ã√°√á√ã√¶√§";
 				break;
 			case 4: // 4x x:not 0
-				returnAlpha = "√—Ì⁄Ê‰";
+				returnAlpha = "√É√ë√≠√ö√¶√§";
 				break;
 			case 5: // 5x x:not 0
-				returnAlpha = "Œ„”Ê‰";
+				returnAlpha = "√é√£√ì√¶√§";
 				break;
 			case 6: // 6x x:not 0
-				returnAlpha = "” Ê‰";
+				returnAlpha = "√ì√ä√¶√§";
 				break;
 			case 7: // 7x x:not 0
-				returnAlpha = "”»⁄Ê‰";
+				returnAlpha = "√ì√à√ö√¶√§";
 				break;
 			case 8: // 8x x:not 0
-				returnAlpha = "À„«‰Ê‰";
+				returnAlpha = "√ã√£√á√§√¶√§";
 				break;
 			case 9: // 9x x:not 0
-				returnAlpha = " ”⁄Ê‰";
+				returnAlpha = "√ä√ì√ö√¶√§";
 				break;
 			default:
 				returnAlpha = "";
@@ -130,7 +129,7 @@ public class ConvertYears {
 		if (convertOneDigits(String.valueOf(twoDigits.charAt(1))).length() == 0) {
 			return returnAlpha;
 		} else { // xx x:not 0
-			return convertOneDigits(String.valueOf(twoDigits.charAt(1))) + " Ê " + returnAlpha;
+			return convertOneDigits(String.valueOf(twoDigits.charAt(1))) + " √¶ " + returnAlpha;
 		}
 	}
 
@@ -142,23 +141,23 @@ public class ConvertYears {
 		case 1: { // 100 - 199
 			if (getIntVal(threeDigits.charAt(1)) == 0) { // 10x
 				if (getIntVal(threeDigits.charAt(2)) == 0) { // 100
-					return "„«∆Â";
+					return "√£√á√Ü√•";
 				} else { // 10x x: is not 0
-					return "„«∆Â" + " Ê " + convertOneDigits(String.valueOf(threeDigits.charAt(2)));
+					return "√£√á√Ü√•" + " √¶ " + convertOneDigits(String.valueOf(threeDigits.charAt(2)));
 				}
 			} else {// 1xx x: is not 0
-				return "„«∆Â" + " Ê " + convertTwoDigits(threeDigits.substring(1, 3));
+				return "√£√á√Ü√•" + " √¶ " + convertTwoDigits(threeDigits.substring(1, 3));
 			}
 		}
 		case 2: { // 200 - 299
 			if (getIntVal(threeDigits.charAt(1)) == 0) { // 20x
 				if (getIntVal(threeDigits.charAt(2)) == 0) { // 200
-					return "„∆ «‰";
+					return "√£√Ü√ä√á√§";
 				} else { // 20x x:not 0
-					return "„∆ «‰" + " Ê " + convertOneDigits(String.valueOf(threeDigits.charAt(2)));
+					return "√£√Ü√ä√á√§" + " √¶ " + convertOneDigits(String.valueOf(threeDigits.charAt(2)));
 				}
 			} else { // 2xx x:not 0
-				return "„∆ «‰" + " Ê " + convertTwoDigits(threeDigits.substring(1, 3));
+				return "√£√Ü√ä√á√§" + " √¶ " + convertTwoDigits(threeDigits.substring(1, 3));
 			}
 		}
 		case 3:
@@ -170,17 +169,17 @@ public class ConvertYears {
 		case 9: { // 300 - 999
 			if (getIntVal(threeDigits.charAt(1)) == 0) { // x0x x:not 0
 				if (getIntVal(threeDigits.charAt(2)) == 0) { // x00 x:not 0
-					return convertOneDigits(String.valueOf(threeDigits.charAt(1) + "„«∆Â"));
+					return convertOneDigits(String.valueOf(threeDigits.charAt(1) + "√£√á√Ü√•"));
 				} else { // x0x x:not 0
-					return convertOneDigits(String.valueOf(threeDigits.charAt(0))) + "„«∆Â" + " Ê "
+					return convertOneDigits(String.valueOf(threeDigits.charAt(0))) + "√£√á√Ü√•" + " √¶ "
 							+ convertOneDigits(String.valueOf(threeDigits.charAt(2)));
 				}
 			} else { // xxx x:not 0
 				String s = convertOneDigits(String.valueOf(threeDigits.charAt(0)));
 				if(threeDigits.charAt(0)=='8') {
-					return s.substring(0, s.length() - 2) + "„«∆Â" + " Ê "+ convertTwoDigits(threeDigits.substring(1, 3));
+					return s.substring(0, s.length() - 2) + "√£√á√Ü√•" + " √¶ "+ convertTwoDigits(threeDigits.substring(1, 3));
 				}else
-				return s.substring(0, s.length() - 1) + "„«∆Â" + " Ê "+ convertTwoDigits(threeDigits.substring(1, 3));
+				return s.substring(0, s.length() - 1) + "√£√á√Ü√•" + " √¶ "+ convertTwoDigits(threeDigits.substring(1, 3));
 			}
 		}
 
@@ -208,31 +207,31 @@ public class ConvertYears {
 			if (getIntVal(fourDigits.charAt(1)) == 0) { // 10xx x:not 0
 				if (getIntVal(fourDigits.charAt(2)) == 0) { // 100x x:not 0
 					if (getIntVal(fourDigits.charAt(3)) == 0) { // 1000
-						return "√·›";
+						return "√É√°√ù";
 					} else { // 100x x:not 0
-						return "√·›" + " Ê " + convertOneDigits(String.valueOf(fourDigits.charAt(3)));
+						return "√É√°√ù" + " √¶ " + convertOneDigits(String.valueOf(fourDigits.charAt(3)));
 					}
 				} else { // 10xx x:not 0
-					return "√·›" + " Ê " + convertTwoDigits(fourDigits.substring(2, 3));
+					return "√É√°√ù" + " √¶ " + convertTwoDigits(fourDigits.substring(2, 3));
 				}
 			} else { // 1xxx x:not 0
-				return "√·›" + " Ê " + convertThreeDigits(fourDigits.substring(1, 4));
+				return "√É√°√ù" + " √¶ " + convertThreeDigits(fourDigits.substring(1, 4));
 			}
 		}
 		case 2: { // 2000 - 2999
 			if (getIntVal(fourDigits.charAt(1)) == 0) { // 20xx
 				if (getIntVal(fourDigits.charAt(2)) == 0) { // 200x
 					if (getIntVal(fourDigits.charAt(3)) == 0) { // 2000
-						return "√·›«‰";
+						return "√É√°√ù√á√§";
 					} else { // 200x x:not 0
-						return "√·›«‰" + " Ê " + convertOneDigits(String.valueOf(fourDigits.charAt(3)));
+						return "√É√°√ù√á√§" + " √¶ " + convertOneDigits(String.valueOf(fourDigits.charAt(3)));
 					}
 				} else { // 20xx x:not 0
 					String s  = convertTwoDigits(fourDigits.substring(2, 4));
-					return "√·›«‰" + " Ê "+s;
+					return "√É√°√ù√á√§" + " √¶ "+s;
 				}
 			} else { // 2xxx x:not 0
-				return "√·›«‰" + " Ê " + convertThreeDigits(fourDigits.substring(1, 4));
+				return "√É√°√ù√á√§" + " √¶ " + convertThreeDigits(fourDigits.substring(1, 4));
 			}
 		}
 		case 3:
@@ -245,17 +244,17 @@ public class ConvertYears {
 			if (getIntVal(fourDigits.charAt(1)) == 0) { // x0xx x:not 0
 				if (getIntVal(fourDigits.charAt(2)) == 0) { // x00x x:not 0
 					if (getIntVal(fourDigits.charAt(3)) == 0) { // x000 x:not 0
-						return convertOneDigits(String.valueOf(fourDigits.charAt(0))) + " √·«›";
+						return convertOneDigits(String.valueOf(fourDigits.charAt(0))) + " √É√°√á√ù";
 					} else { // x00x x:not 0
-						return convertOneDigits(String.valueOf(fourDigits.charAt(0))) + " √·«›" + " Ê "
+						return convertOneDigits(String.valueOf(fourDigits.charAt(0))) + " √É√°√á√ù" + " √¶ "
 								+ convertOneDigits(String.valueOf(fourDigits.charAt(3)));
 					}
 				} else { // x0xx x:not 0
-					return convertOneDigits(String.valueOf(fourDigits.charAt(0))) + " √·«›" + " Ê "
+					return convertOneDigits(String.valueOf(fourDigits.charAt(0))) + " √É√°√á√ù" + " √¶ "
 							+ convertTwoDigits(fourDigits.substring(2, 3));
 				}
 			} else { // xxxx x:not 0
-				return convertOneDigits(String.valueOf(fourDigits.charAt(0))) + " √·«›" + " Ê "
+				return convertOneDigits(String.valueOf(fourDigits.charAt(0))) + " √É√°√á√ù" + " √¶ "
 						+ convertThreeDigits(fourDigits.substring(1, 4));
 			}
 		}
@@ -269,9 +268,9 @@ public class ConvertYears {
 		if (convertThreeDigits(fiveDigits.substring(2, 5)).length() == 0) { // xx000
 																			// x:not
 																			// 0
-			return convertTwoDigits(fiveDigits.substring(0, 2)) + " √·› ";
+			return convertTwoDigits(fiveDigits.substring(0, 2)) + " √É√°√ù ";
 		} else { // xxxxx x:not 0
-			return convertTwoDigits(fiveDigits.substring(0, 2)) + " √·›« " + " Ê "
+			return convertTwoDigits(fiveDigits.substring(0, 2)) + " √É√°√ù√á " + " √¶ "
 					+ convertThreeDigits(fiveDigits.substring(2, 5));
 		}
 	}
@@ -281,9 +280,9 @@ public class ConvertYears {
 		if (convertThreeDigits(sixDigits.substring(2, 5)).length() == 0) { // xxx000
 																			// x:not
 																			// 0
-			return convertThreeDigits(sixDigits.substring(0, 3)) + " √·› ";
+			return convertThreeDigits(sixDigits.substring(0, 3)) + " √É√°√ù ";
 		} else { // xxxxxx x:not 0
-			return convertThreeDigits(sixDigits.substring(0, 3)) + " √·›« " + " Ê "
+			return convertThreeDigits(sixDigits.substring(0, 3)) + " √É√°√ù√á " + " √¶ "
 					+ convertThreeDigits(sixDigits.substring(3, 6));
 		}
 	}
